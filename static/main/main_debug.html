@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Career Board — Web3 & Blockchain Jobs</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Web3 Career Board — fresh Web3 vacancies, blockchain and crypto. Coding, SEO, DeFi, NFT, Smart-contracts. Apply vacancy for 1 minute.">
+    <meta name="keywords" content="Web3 jobs, blockchain jobs, crypto jobs, crypto career, Web3 developer, smart contract jobs, Rust jobs, Solidity jobs">
+    <link rel="canonical" href="https://your-domain.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Web3 Career Board — Web3 & Blockchain Jobs" />
+    <meta property="og:description" content="Top Web3 vacancies. Search Web3 jobs, blockchain and crypto industry." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/" />
+    <meta property="og:image" content="https://your-domain.com/static/preview.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web3 Career Board — Web3 vacancies">
+    <meta name="twitter:description" content="Web3 jobs: development, SEO, DeFi, NFT.">
+    <meta name="twitter:image" content="https://your-domain.com/static/preview.png">
+
+    <meta name="theme-color" content="#0A0F1F" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "JobPosting",
+      "title": "#h",
+      "description": "3th",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "Web3 Career Board",
+        "sameAs": "https://your-domain.com/"
+      },
+      "jobLocationType": "TELECOMMUTE",
+      "employmentType": "Full-time",
+      "salaryCurrency": "USD",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 12,
+          "maxValue": 34,
+          "unitText": "HOUR"
+        }
+      }
+    }
+    </script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0A0F1F;
+            --bg-darker: #050713;
+            --gradient-main: linear-gradient(135deg, #00c6ff 0%, #4b45ff 40%, #b200ff 100%);
+            --neon-blue: #00C6FF;
+            --neon-light-blue: #33E0FF;
+            --neon-purple: #7A00FF;
+            --neon-pink: #C200FF;
+            --text-light: #E6E6E6;
+            --space-s: 8px;
+            --space-m: 16px;
+            --space-l: 24px;
+            --space-xl: 36px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        /* ВОДЯНОЙ ЗНАК */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 900px;
+            height: 900px;
+            background: url("vazima.jpg") no-repeat center center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+            opacity: 0.05;
+            filter: blur(1px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        main {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--bg-darker);
+            padding: 25px 0;
+            box-shadow: 0 0 25px rgba(0, 198, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+        }
+
+        /* JOB CARDS */
+        .jobs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: var(--space-xl) 0;
+        }
+
+        article.vacancy-card {
+            padding: var(--space-l);
+            border-radius: 16px;
+            background: rgba(14, 21, 46, 0.55);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 14px rgba(0, 198, 255, 0.18),
+                        inset 0 0 22px rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 198, 255, 0.2);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        article.vacancy-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 0 24px rgba(0, 198, 255, 0.35),
+                        0 0 40px rgba(122, 0, 255, 0.25);
+        }
+
+        h2.vacancy-title {
+            margin-top: 0;
+            margin-bottom: var(--space-s);
+            font-size: 22px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .vacancy-description {
+            margin-bottom: var(--space-s);
+            color: #c9c9c9;
+        }
+
+        .vacancy-salary {
+            margin-bottom: var(--space-m);
+            color: var(--neon-light-blue);
+            font-weight: 600;
+        }
+
+        .vacancy-apply-btn {
+            padding: 12px 22px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            color: #fff;
+            background-image: linear-gradient(var(--bg-dark), var(--bg-dark)),
+                              var(--gradient-main);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .vacancy-apply-btn:hover {
+            background-image: var(--gradient-main), var(--gradient-main);
+            color: #000;
+        }
+
+        .vacancy-apply-btn:focus-visible {
+            outline: 3px solid var(--neon-light-blue);
+            outline-offset: 3px;
+        }
+
+        /* NO VACANCIES MESSAGE */
+        .no_vacancies {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--neon-light-blue);
+            padding: var(--space-xl);
+            margin: var(--space-xl) auto;
+            max-width: 600px;
+            text-shadow: 0 0 10px rgba(0, 198, 255, 0.4),
+                         0 0 20px rgba(0, 198, 255, 0.2);
+            background: rgba(10, 15, 31, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 198, 255, 0.15);
+            backdrop-filter: blur(8px);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* FOOTER - ИСПРАВЛЕННЫЕ СТИЛИ */
+        footer {
+            background: var(--bg-darker);
+            padding: 25px 0;
+            box-shadow: 0 -5px 25px rgba(0, 198, 255, 0.2);
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-icon {
+            font-size: 26px;
+            color: var(--neon-blue);
+            transition: 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 12px var(--neon-blue),
+                         0 0 18px var(--neon-purple);
+        }
+
+        /* Adaptive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .jobs-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: var(--space-l) 0;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .social-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Web3 Career Board</h1>
+            <nav>
+                <a href="/login">Post a Job</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+                        <div class="container">
+                            <section class="jobs-container">
+                                <article class="vacancy-card">
+                                    <h2 class="vacancy-title">#Rust developer</h2>
+                                    <p class="vacancy-description">Ты должен быть легендой.<br><br>Понял?<br><br>Да бро</p>
+                                    <p class="vacancy-salary">Salary: $1200-$2300</p>
+                                    <a href="https://t.me/trinitycult">
+                                        <button class="vacancy-apply-btn">Apply Now</button>
+                                    </a>
+                                </article>
+                            </section>
+                        </div>
+                    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Web3 Career Board. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://t.me/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://x.com/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

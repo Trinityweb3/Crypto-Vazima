@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vacancy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0A0F1F;
+            --bg-darker: #050713;
+            --neon-blue: #00C6FF;
+            --neon-light-blue: #33E0FF;
+            --neon-purple: #7A00FF;
+            --neon-pink: #C200FF;
+            --neon-red: #FF3366;
+            --neon-orange: #FF6B35;
+            --text-light: #E6E6E6;
+            --gradient-main: linear-gradient(135deg, #00C6FF 0%, #7A00FF 50%, #C200FF 100%);
+            --gradient-delete: linear-gradient(135deg, #FF3366 0%, #FF6B35 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: url("/static/vazima.jpg") no-repeat center center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            filter: drop-shadow(0 0 20px rgba(0, 198, 255, 0.4));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background: var(--bg-darker);
+            padding: 25px 0;
+            box-shadow: 0 0 25px rgba(0, 198, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+        }
+
+        /* VACANCY FORM */
+        .vacancy-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 30px auto;
+        }
+
+        .vacancy-form {
+            width: 100%;
+            background: #0E152E;
+            padding: 40px 35px;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 198, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.25), 0 0 25px rgba(122, 0, 255, 0.25);
+            transition: 0.35s;
+        }
+
+        .vacancy-form:hover {
+            box-shadow: 0 0 25px var(--neon-blue), 0 0 40px var(--neon-purple);
+        }
+
+        .vacancy-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .vacancy-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--neon-light-blue);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .vacancy-form label::after {
+            content: " *";
+            color: var(--neon-red);
+        }
+
+        .vacancy-form input,
+        .vacancy-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 25px;
+            background: rgba(5, 7, 19, 0.7);
+            border: 1px solid rgba(0, 198, 255, 0.4);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .vacancy-form input:focus,
+        .vacancy-form textarea:focus {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 12px rgba(194, 0, 255, 0.5);
+            outline: none;
+        }
+
+        .vacancy-form textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .vacancy-form button {
+            width: 100%;
+            padding: 15px;
+            background-image:
+                linear-gradient(var(--bg-dark), var(--bg-dark)),
+                var(--gradient-main);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .vacancy-form button:hover {
+            background-image: var(--gradient-main), var(--gradient-main);
+            color: #000;
+        }
+
+        /* DELETE BUTTON */
+        .telegram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background-image:
+                linear-gradient(var(--bg-dark), var(--bg-dark)),
+                var(--gradient-delete);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .telegram-btn:hover {
+            background-image: var(--gradient-delete), var(--gradient-delete);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.4);
+        }
+
+        .telegram-btn i {
+            font-size: 18px;
+        }
+
+        .salary-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .salary-row > div {
+            flex: 1;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #8a8fb3;
+            margin-top: -20px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .required-note {
+            font-size: 13px;
+            color: var(--neon-red);
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .error-message {
+            color: var(--neon-red);
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 12px;
+            background: rgba(255, 51, 102, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 51, 102, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-darker);
+            padding: 25px 0;
+            box-shadow: 0 -5px 25px rgba(0, 198, 255, 0.2);
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-icon {
+            font-size: 26px;
+            color: var(--neon-blue);
+            transition: 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 12px var(--neon-blue), 0 0 18px var(--neon-purple);
+        }
+
+        /* Adaptive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .vacancy-form {
+                padding: 30px 25px;
+            }
+
+            .salary-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .social-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Web3 Career Board</h1>
+            <nav>
+                <a href="/">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="vacancy-container">
+        <form class="vacancy-form" method="POST" action="/post_vacansion">
+            <h2>Add New Vacancy</h2>
+            
+            <div class="required-note">* All fields are required</div>
+            
+            <label for="title">Job Title</label>
+            <input type="text" id="title" name="title" required placeholder="Enter job title (e.g., Senior Rust Developer)">
+
+            <label for="link">Application link</label>
+            <input type="text" id="link" name="link" required placeholder="Enter Application link (e.g., t.me / e-mail, web-site...)">
+
+            <div class="salary-row">
+                <div>
+                    <label for="min_salary">Minimum Salary ($)</label>
+                    <input type="number" id="min_salary" name="min_salary" 
+                           min="0" step="1" placeholder="50000" required>
+                    <div class="form-note">Enter minimum salary in dollars (no commas)</div>
+                </div>
+                <div>
+                    <label for="max_salary">Maximum Salary ($)</label>
+                    <input type="number" id="max_salary" name="max_salary" 
+                           min="0" step="1" placeholder="80000" required>
+                    <div class="form-note">Enter maximum salary in dollars (no commas)</div>
+                </div>
+            </div>
+            
+            <label for="body">Job Description & Requirements</label>
+            <textarea id="body" name="body" required 
+                      placeholder="Enter detailed job description, responsibilities, requirements, etc..."></textarea>
+            
+            <button type="submit">Add Vacancy</button>
+            
+            <a class="telegram-btn" href="/send_delete_vacansion_form">
+                <i class="fas fa-trash-alt"></i>
+                Delete vacansion
+            </a>
+        </form>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Web3 Career Board. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://t.me/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://x.com/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Add validation for salary range
+        document.querySelector('.vacancy-form').addEventListener('submit', function(e) {
+            const minSalary = document.getElementById('min_salary');
+            const maxSalary = document.getElementById('max_salary');
+            
+            // Check if min_salary is less than or equal to max_salary
+            if (parseInt(minSalary.value) > parseInt(maxSalary.value)) {
+                e.preventDefault();
+                alert('Error: Minimum salary cannot be greater than maximum salary!');
+                minSalary.focus();
+                minSalary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+            
+            // Check if salaries are positive numbers
+            if (parseInt(minSalary.value) < 0 || parseInt(maxSalary.value) < 0) {
+                e.preventDefault();
+                alert('Error: Salary values cannot be negative!');
+                minSalary.focus();
+                minSalary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return false;
+            }
+            
+            return true;
+        });
+
+        // Real-time validation for salary fields
+        document.getElementById('min_salary').addEventListener('input', function() {
+            const min = parseInt(this.value);
+            const max = parseInt(document.getElementById('max_salary').value);
+            
+            if (!isNaN(min) && !isNaN(max) && min > max) {
+                this.style.borderColor = 'var(--neon-red)';
+                document.getElementById('max_salary').style.borderColor = 'var(--neon-red)';
+            } else {
+                this.style.borderColor = 'rgba(0, 198, 255, 0.4)';
+                document.getElementById('max_salary').style.borderColor = 'rgba(0, 198, 255, 0.4)';
+            }
+        });
+
+        document.getElementById('max_salary').addEventListener('input', function() {
+            const max = parseInt(this.value);
+            const min = parseInt(document.getElementById('min_salary').value);
+            
+            if (!isNaN(min) && !isNaN(max) && min > max) {
+                this.style.borderColor = 'var(--neon-red)';
+                document.getElementById('min_salary').style.borderColor = 'var(--neon-red)';
+            } else {
+                this.style.borderColor = 'rgba(0, 198, 255, 0.4)';
+                document.getElementById('min_salary').style.borderColor = 'rgba(0, 198, 255, 0.4)';
+            }
+        });
+    </script>
+</body>
+</html>

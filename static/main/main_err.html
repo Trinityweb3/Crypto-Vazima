@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Career Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        header nav {
+            float: right;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .jobs {
+            margin: 40px 0;
+        }
+
+        .jobs h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        .job-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .job-card h3 {
+            margin-bottom: 10px;
+            color: #0a0a0a;
+        }
+
+        .job-card p {
+            margin-bottom: 8px;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .apply-btn:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+        }
+
+        .fa-telegram:hover {
+            color: #0088cc;
+        }
+
+        .fa-twitter:hover {
+            color: #1da1f2;
+        }
+
+        .fa-linkedin:hover {
+            color: #0077b5;
+        }
+
+        .register-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .register-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .register-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .register-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .register-form input:focus {
+            border-color: #1a1a1a;
+            box-shadow: 0 0 5px rgba(26,26,26,0.3);
+            outline: none;
+        }
+
+        .register-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .register-form button:hover {
+            background-color: #333;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Web3 Career Board</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/post_vacansion_page">Post a Job</a>
+                <a href="/register">Sign Up</a>
+                <a href="/login">Log In</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <p>
+            Error loading vacancies
+        </p>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Web3 Career Board. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://t.me/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://x.com/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

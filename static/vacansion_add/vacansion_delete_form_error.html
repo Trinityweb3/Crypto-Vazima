@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vacancy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        header nav {
+            float: right;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .vacancy-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .vacancy-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .vacancy-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .vacancy-form label::after {
+            content: " *";
+            color: #ff0000;
+        }
+
+        .vacancy-form input, 
+        .vacancy-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .vacancy-form input:focus,
+        .vacancy-form textarea:focus {
+            border-color: #1a1a1a;
+            box-shadow: 0 0 5px rgba(26,26,26,0.3);
+            outline: none;
+        }
+
+        .vacancy-form textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .vacancy-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .vacancy-form button:hover {
+            background-color: #333;
+        }
+
+        .telegram-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #0088cc;
+            color: #fff;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 15px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .telegram-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .telegram-btn:hover {
+            background-color: #0077b5;
+            transform: translateY(-2px);
+        }
+
+        .salary-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .salary-row > div {
+            flex: 1;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #777;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .required-note {
+            font-size: 12px;
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .error-message {
+            background-color: #ffdddd;
+            border-left: 4px solid #ff4d4d;
+            padding: 12px 15px;
+            border-radius: 6px;
+            color: #a30000;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-align: center;
+            padding: 10px;
+            background-color: #ffe6e6;
+            border-radius: 5px;
+            border: 1px solid #ffcccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>JobBoard</h1>
+            <nav>
+                <a href="/">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="vacancy-container">
+        <form class="vacancy-form" method="POST" action="/delete_vacansion">
+            <div class="error-message">
+                Error occured. Try again, or return to home
+            </div>
+
+            <h2>Delete Vacancy</h2>    
+            <label for="title">Job Title</label>
+            <input type="text" id="title" name="title" required placeholder="Enter job's title for delete (e.g., Senior Rust Developer)">
+            <button type="submit">Delete Vacancy</button>
+        </form>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Web3 Career Board. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://t.me/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://x.com/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>       
+</body>
+</html>

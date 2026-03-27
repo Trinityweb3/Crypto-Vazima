@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Error</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                background-color: #f8f9fa;
+                color: #333;
+            }
+
+            .error-container {
+                max-width: 500px;
+                margin: 80px auto;
+                background-color: #fff;
+                padding: 40px 30px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                text-align: center;
+            }
+
+            .error-container h2 {
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .error-container p {
+                font-size: 16px;
+                color: #555;
+                line-height: 1.5;
+                margin-bottom: 25px;
+            }
+
+            .telegram-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background-color: #0088cc;
+                color: #fff;
+                padding: 12px 22px;
+                border-radius: 50px;
+                font-weight: bold;
+                text-decoration: none;
+                transition: background 0.3s ease, transform 0.2s ease;
+                margin-top: 10px;
+            }
+
+            .telegram-btn svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .telegram-btn:hover {
+                background-color: #0077b5;
+                transform: translateY(-2px);
+            }
+            .login-link {
+                text-align: center;
+                margin-top: 15px;
+                font-size: 14px;
+            }
+
+            .login-link a {
+                color: #1a1a1a;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+            footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            opacity: 0.8;
+        }
+
+        .fa-telegram:hover {
+            color: #0088cc;
+        }
+
+        .fa-twitter:hover {
+            color: #1da1f2;
+        }
+
+        .fa-linkedin:hover {
+            color: #0077b5;
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="error-container">
+            <h2>Unknown Error</h2>
+            <p>
+                We’re sorry — this issue occurred on our side and is related to the database.<br>
+                Please try again.<br><br>
+                If the error persists, contact our support team below.
+            </p>
+
+            <a href="https://t.me/crypto_vazima" class="telegram-btn" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+                    <circle cx="120" cy="120" r="120" fill="#0088cc"/>
+                    <path d="M185 70L159 178c-2 8-7 10-14 6l-40-30-19 18c-2 2-4 3-7 3l3-42 76-69c3-3-1-4-5-2l-94 59L37 111c-8-3-8-8 2-12l137-53c6-2 11 1 9 8z" fill="#fff"/>
+                </svg>
+                Contact Support
+            </a>
+            <div class="login-link">
+                    <a href="/login">Already have an account?</a>
+            </div>
+        </div>
+        <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Web3 Career Board. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://t.me/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://x.com/crypto_vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/vazima" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
